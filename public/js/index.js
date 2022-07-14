@@ -3,11 +3,17 @@ window.addEventListener('load', function () {
 	let chat = document.getElementById('chat');
 	let message = document.getElementById('message');
 	let user = document.getElementById('user');
-	let btn = document.getElementById('btn');
+	let btn = document.querySelector('.btn-outline-secondary');
 	let type = document.getElementById('type');
+	let form = document.querySelector('.form');
 	let clean = document.querySelector('.borrar');
 
 	user.focus();
+	message.focus();
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+	});
 
 	btn.addEventListener('click', function () {
 		socket.emit('chat message', {
@@ -21,11 +27,21 @@ window.addEventListener('load', function () {
 	});
 
 	socket.on('chat message', function (data) {
-		chat.innerHTML += `<p><strong>${data.user}:</strong> <i>${data.message}</i></p>`;
+		user.focus();
+		message.focus();
+		message.addEventListener('submit', function (e) {
+			if (message.value.length < 0) {
+				e.preventDefault();
+			}
+		});
+
+		chat.innerHTML += `<h4><strong> ${data.user}:</strong>${data.message}</i></h4>`.toLowerCase();
+		chat.scrollTo(0, document.body.scrollHeight);
+
 		type.innerHTML = '';
 	});
 
-	message.addEventListener('keypress', function () {
+	message.addEventListener('keydown', function () {
 		socket.emit('typing', user.value);
 	});
 
@@ -35,6 +51,6 @@ window.addEventListener('load', function () {
 		}
 	});
 	socket.on('typing', function (data) {
-		type.innerHTML = `<p><i>${data} is typing...</i></p>`;
+		type.innerHTML = `<h5><i>${data} is typing...</i></h5>`;
 	});
 });

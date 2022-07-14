@@ -2,6 +2,7 @@
 	padding: 0%;
 	margin: 0%;
 	box-sizing: border-box;
+
 }
 body {
 	display: flex;
@@ -9,55 +10,158 @@ body {
 	align-content: center;
 	flex-direction: column;
 }
-header {
+.header {
 	display: flex;
-	padding: 50px;
+	padding: 40px;
 	justify-content: center;
-	background-color: #f5f5f5;
+	background: linear-gradient(50deg, rgb(76, 92, 155), rgb(109, 68, 116));
+	clip-path: polygon(20% 15px, 100% 0%, 80% calc(100% - 18px), 0% 100%);
+	color: aliceblue;
 }
 
 .chat {
-	margin-top: 20px;
-	padding: 25px;
+	display: flex;
 	flex-direction: column;
-	overflow: hidden auto;
-	background-color: #f5f5f5;
+	align-items: center;
+	overflow: auto;
+	background: linear-gradient(50deg, rgb(76, 92, 155), rgb(109, 68, 116));
 	border-radius: 10px;
 	width: 60%;
-	height: 500px;
-	margin-left: 20%;
+	box-shadow: 2px 0px 250px 1px violet;
+	border: transparent;
+	height: 350px !important;
+	margin: auto;
 }
-#type {
+.chat::-webkit-scrollbar {
+	display: none;
+}
+h4 {
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Nunito', sans-serif;
+color: whitesmoke;
+	border: 1px solid rgb(60, 80, 80);
+	box-shadow: 7px 5px 5px 2px rgb(60, 80, 80);
+	text-align: left;
+	border-radius: 15px 7px 0px 20px;
+	width: 45%;
+	margin-left: 50%;
+	margin-right: 0%;
+	margin-top: 15px;
+	padding: 3px;
+	background-color: transparent;
+}
+.chat h4:nth-child(odd) {
+	margin-right: 50%; font-family: Arial, Helvetica, sans-serif;
+	margin-top: 15px;
+	width: 45%;
+	margin-left: 0%;
+	box-shadow: 5px 5px 7px 2px black;
+	border-radius: 7px 15px 20px 0px;
+	text-align: left;
+	border: 1px solid black;
+	background-color: transparent;
+	padding: 3px;
+}
+
+strong {
+	padding-left: 8px;
+	color: rgb(109, 166, 153);
+}
+i {
+	padding-right: 8px;
+	color: black;
+}
+h5 {
+
 	text-align: center;
 	height: 50px;
 	border-radius: 10px;
 	border: none;
 	padding: 10px;
-
 	margin-bottom: 10px;
 }
 .borrar {
 	border-radius: 20%;
 	text-align: center;
-	margin-left: 50px;
-	margin-top: 15px;
-	padding: 2px;
-	height: 50px;
+	margin-left: 80%;
+	padding: 3px;
+	height: 60px;
 	width: 60px;
 	border: 1px solid black;
 	cursor: pointer;
+	background-color: aliceblue;
 }
-
+#user::placeholder {
+	text-align: center;
+	color: rgba(187, 125, 125, 0.823);
+	opacity: 1 !important;
+}
+#user {
+	box-shadow: 0px 0px 30px 9px black;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: rgb(120, 80, 204);
+	background: url('https://as2.ftcdn.net/v2/jpg/00/55/28/39/1000_F_55283940_fJV8iGqPSEHxIEgK8BcLPvQj9fCUNUqt.jpg') ;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.75;
+	border-radius: 30%;
+	width: 100px;
+	height: 100px;
+	margin:  auto;
+}
+.agregar-user {
+	font-size: 19px;
+	text-decoration: underline;
+	color: aliceblue;
+	margin:  auto;
+}
 .form {
-	margin-top: 20px;
-	margin-left: 20%;
+	margin:  auto;
 	width: 60%;
+	
 }
-.message {
+.borrar:hover{
+	box-shadow: 5px 10px 20px 5px black;
+	border: transparent;
+}
+#message {
+
+	background-color: rgb(212, 237, 237);
 	height: 50px;
-	width: 80%;
+	width: 84%;
 }
 button {
 	width: 15%;
 	height: 50px;
+}
+body {
+	background: linear-gradient(60deg, rgb(62, 62, 133), rgb(81, 48, 81));
+}
+@media(min-width:100px) and (max-width:700px){
+	.header {
+		clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 18px), 0% 100%);
+	}
+	.chat{
+		margin:auto;
+		width: 90%;
+		height:100%;
+	}
+	.form{
+		width: 90%;
+	}
+
+}
+
+::-webkit-scrollbar {
+	background-color: rgb(112, 68, 153);
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: rgb(140, 140, 162);
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
 }

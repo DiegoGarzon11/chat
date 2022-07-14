@@ -5,27 +5,51 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Nunito:wght@300&display=swap" rel="stylesheet">
 		<title>Chat</title>
 	</head>
+	<header class="header">
+		<h1>Bienvenido al mejor chat de todos</h1>
+	</header>
 	<body>
-		<header>
-			<h1>Bienvenido al mejor chat de todos</h1>
-		</header>
 		<div class="borrar">Clean Chat</div>
+		<input id="user" type="text" name="user" placeholder="usuario" required />
+		<p class="agregar-user">Inserte su usuario</p>
+
 		<div id="chat" class="chat"></div>
-		<p id="type"></p>
+		<h2 id="type"></h2>
 		<form class="form">
-			<input id="user" type="text" name="user" placeholder="Escribe tu usuario" required />
-			<input
-				type="text"
-				name="message"
-				id="message"
-				class="message"
-				placeholder="Escribe tu mensaje"
-				required
-			/>
-			<button id="btn" type="button">ENVIAR</button>
+			<div class="input-group mb-3">
+				<input
+					type="text"
+					class="form-control"
+					id="message"
+					placeholder="Mensaje"
+					aria-label="Recipient's username"
+					aria-describedby="button-addon2"
+					required
+					minlength="1"
+				/>
+				<button
+					type="button"
+					class="btn btn-outline-secondary"
+					type="button"
+					id=" btn button-addon2"
+				>
+					<i class="fa-solid fa-paper-plane"></i>
+				</button>
+			</div>
 		</form>
+		<script
+			src="https://kit.fontawesome.com/e509c99c74.js"
+			crossorigin="anonymous"
+		></script>
 		<script src="/socket.io/socket.io.js" charset="UTF-8"></script>
 		<script src="/js/index.js"></script>
 	</body>
