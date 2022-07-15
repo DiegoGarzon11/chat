@@ -27,8 +27,7 @@ window.addEventListener('load', function () {
 	});
 
 	socket.on('chat message', function (data) {
-		user.focus();
-		message.focus();
+		
 		message.addEventListener('submit', function (e) {
 			if (message.value.length < 0) {
 				e.preventDefault();
@@ -53,4 +52,5 @@ window.addEventListener('load', function () {
 	socket.on('typing', function (data) {
 		type.innerHTML = `<h5><i>${data} is typing...</i></h5>`;
 	});
+	
 });
