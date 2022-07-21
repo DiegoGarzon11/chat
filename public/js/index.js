@@ -8,6 +8,11 @@ window.addEventListener('load', function () {
 	let form = document.querySelector('.form');
 	let clean = document.querySelector('.borrar');
 
+	const tiempo = new Date();
+	let hora = tiempo.getHours();
+	let minutos = tiempo.getMinutes();
+	let horaActual = hora + ':' + minutos;
+
 	user.focus();
 	message.focus();
 
@@ -27,15 +32,14 @@ window.addEventListener('load', function () {
 	});
 
 	socket.on('chat message', function (data) {
-		
 		message.addEventListener('submit', function (e) {
 			if (message.value.length < 0) {
 				e.preventDefault();
 			}
 		});
 
-		chat.innerHTML += `<h4><strong> ${data.user}:</strong>${data.message}</i></h4>`.toLowerCase();
-		chat.scrollTo(0, document.body.scrollHeight);
+		(chat.innerHTML += `<h4> <strong> ${data.user}:</strong>${data.message} </i> <b class="tiempo">${horaActual}</b></h4>`),
+			chat.scrollTo(0, document.body.scrollHeight);
 
 		type.innerHTML = '';
 	});
@@ -52,5 +56,4 @@ window.addEventListener('load', function () {
 	socket.on('typing', function (data) {
 		type.innerHTML = `<h5><i>${data} is typing...</i></h5>`;
 	});
-	
 });
